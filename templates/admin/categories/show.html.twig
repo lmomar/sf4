@@ -1,0 +1,17 @@
+{% extends 'layouts/back.html.twig' %}
+
+{% block content %}
+    <dl class="dl-horizontal">
+        <dt>ID:</dt>
+        <dd>{{ category.id }}</dd>
+        <dt>Name:</dt>
+        <dd>{{ category.name }}</dd>
+        <dt>Created at:</dt>
+        <dd>{{ category.createdAt|date }}</dd>
+        <div class="form-group">
+            <a href="{{ path('app_admin_category_index') }}" class="btn btn-primary">Return to list</a>
+            <a href="{{ path('app_admin_category_edit',{'id':category.id}) }}" class="btn btn-warning">Edit</a>
+            <a href="{{ path('app_admin_category_delete',{'id':category.id}) }}" class="btn btn-danger">Delete</a>
+        </div>
+    </dl>
+{% endblock %}

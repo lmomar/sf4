@@ -1,0 +1,16 @@
+{% extends 'layouts/back.html.twig' %}
+
+{% block content %}
+    {{ form_start(form,{attr: {class: 'form-inline'}}) }}
+    <div class="input-group">
+        <div class="col-md-2 text-right">
+            <label for="">Name</label>
+        </div>
+        <div class="col-md-10">
+            <input type="text" class="form-control" disabled="disabled" value="{{ category.name }}">
+        </div>
+    </div>
+    {{ form_widget(form.submit) }}
+    <a href="{{ path('app_admin_category_index') }}" class="btn btn-info">Cancel</a>
+    {{ form_end(form) }}
+{% endblock %}

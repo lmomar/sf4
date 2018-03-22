@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/build/css/app.css') }}">
+{% endblock %}
+
+{% block body %}
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Symfony 4</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Symfony 4</a>
+                </div>
+            </div>
+        </nav>
+    <div class="container-fluid">
+        <div class="row">
+            {% include 'admin/menu/sidebar.html.twig' %}
+            <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 main">
+                <h1 class="page-header">Admin Panel</h1>
+                    {% include 'alert/alert.html.twig' %}
+                    {% block content %}
+
+                    {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('/build/js/app.js') }}"></script>
+{% endblock %}

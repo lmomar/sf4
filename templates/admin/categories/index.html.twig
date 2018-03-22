@@ -1,0 +1,39 @@
+{% extends 'layouts/back.html.twig' %}
+
+{% block content %}
+    <div class="panel panel-primary">
+        <header class="panel-heading clearfix">
+            <h2 class="panel-title col-md-6">Categories list</h2>
+            <div class="col-md-6 text-right">
+                <a href="{{ path('app_admin_category_add') }}" class="btn btn-success btn-xs">New Category</a>
+            </div>
+        </header>
+        <div class="panel-body">
+            <table class="table table-bordered table-responsive table-condensed table-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Created at</td>
+                    <td>Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.createdAt|date }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_category_show',{'id':category.id}) }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i></a>
+                        <a href="{{ path('app_admin_category_edit',{'id':category.id}) }}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                        <a href="{{ path('app_admin_category_delete',{'id':category.id}) }}" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></a>
+                    </td>
+                </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+{% endblock %}

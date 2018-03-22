@@ -1,0 +1,14 @@
+{% extends 'layouts/back.html.twig' %}
+{% block content %}
+    {{ form_start(form,{attr: {class: 'form-inline'}}) }}
+    <div class="input-group">
+        <div class="col-md-2 text-right">
+            {{ form_label(form.name) }}
+        </div>
+        <div class="col-md-10">
+            {{ form_widget(form.name) }}
+        </div>
+    </div>
+        {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}
